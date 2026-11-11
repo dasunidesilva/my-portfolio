@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Globe, Mail, Code2, Sparkles, Terminal, Cpu, Layout } from 'lucide-react';
+import { ArrowRight, Globe, Mail, Code2, Sparkles, Cpu, Layout } from 'lucide-react';
 import profileImg from '../assets/hero.png';
 
-export default function Hero() {
-  const roles = ["Software Developer", "CS Undergraduate", "Full-Stack Web Dev"];
+export default function Hero({ name, description, roles }) {
   const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
@@ -11,7 +10,7 @@ export default function Hero() {
       setRoleIndex((prev) => (prev + 1) % roles.length);
     }, 2800);
     return () => clearInterval(interval);
-  }, []);
+  }, [roles.length]);
 
   return (
     <section id="hero" className="hero-container">
@@ -28,7 +27,7 @@ export default function Hero() {
           </div>
 
           <h1 className="hero-title">
-            Hi, I'm <span className="gradient-text">Dasuni De Silva</span>
+            Hi, I'm <span className="gradient-text">{name}</span>
           </h1>
 
           <div className="role-switcher">
@@ -39,8 +38,7 @@ export default function Hero() {
           </div>
 
           <p className="hero-description">
-            A passionate CS undergraduate crafting modern web experiences, 
-            efficient backend systems, and creative digital solutions.
+            {description}
           </p>
 
           <div className="cta-group">
@@ -76,7 +74,7 @@ export default function Hero() {
             <div className="profile-card">
               <img 
                 src={profileImg} 
-                alt="Dasuni De Silva" 
+                alt={name} 
                 className="profile-img" 
               />
             </div>

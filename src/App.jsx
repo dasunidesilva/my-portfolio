@@ -11,7 +11,11 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Hero />
+      <Hero
+        name="Dasuni De Silva"
+        description="A passionate CS undergraduate crafting modern web experiences, efficient backend systems, and creative digital solutions."
+        roles={["Software Developer", "CS Undergraduate", "Full-Stack Web Dev"]}
+      />
       <About />
       <Skills />
       <Projects />
